@@ -1,105 +1,135 @@
-
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
+/* FONDO ESTRELLAS + ROSA */
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: radial-gradient(circle, #ff9ff3, #5f27cd, #2e086d);
+
+    background:
+        radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px),
+        linear-gradient(135deg, #ff9ff3, #c56cf0, #6c5ce7);
+
+    background-size: 40px 40px, cover;
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
-
+/* CONTENEDOR */
 .container {
     width: 90%;
     max-width: 600px;
     text-align: center;
 }
 
+/* TITULO CON GLOW */
+.title {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow:
+        0 0 10px #ff6ec7,
+        0 0 20px #ff6ec7,
+        0 0 40px #ff6ec7;
+}
 
+.subtitle {
+    margin-bottom: 20px;
+    color: #f1c6ff;
+}
+
+/* CARD SUPERIOR */
 .card {
     background: rgba(255,255,255,0.15);
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    backdrop-filter: blur(10px);
-}
-
-
-.projects-container {
-    position: relative;
-    background: rgba(255, 110, 199, 0.35); /* ROSA TRANSPARENTE */
-    padding: 25px;
+    padding: 20px;
     border-radius: 20px;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 15px rgba(255, 182, 255, 0.5);
 }
 
+/* CONTENEDOR PROYECTOS */
+.projects-container {
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 25px;
 
-.projects-container h2 {
-    margin-bottom: 15px;
+    background: rgba(255, 150, 220, 0.3);
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 25px rgba(255, 182, 255, 0.5);
 }
 
-
+/* PROYECTO */
 .project {
-    position: relative;
-    background: rgba(255, 110, 199, 0.25);
-    padding: 15px;
-    border-radius: 15px;
     margin-top: 15px;
+    padding: 15px;
+    border-radius: 25px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    overflow: hidden;
+    background: rgba(255,255,255,0.2);
+    position: relative;
 }
 
-
+/* BORDE RGB SUAVE */
 .project::before {
     content: "";
     position: absolute;
     inset: -2px;
-    border-radius: 15px;
+    border-radius: 25px;
+
     background: linear-gradient(
         45deg,
         #00ffff,
-        #5f27cd,
-        #ff00cc,
+        #ff6ec7,
+        #a29bfe,
         #00ffff
     );
-    background-size: 400%;
+
+    background-size: 300%;
+    filter: blur(6px);
     z-index: -1;
-    filter: blur(8px);
-    animation: rgbMove 6s linear infinite;
+
+    animation: glow 6s linear infinite;
 }
 
-@keyframes rgbMove {
+/* ANIMACION */
+@keyframes glow {
     0% { background-position: 0% }
     100% { background-position: 300% }
 }
 
-.project span {
-    font-weight: bold;
-}
-
+/* BOTON */
 .project a {
-    padding: 8px 15px;
-    border-radius: 10px;
+    padding: 10px 18px;
+    border-radius: 20px;
     text-decoration: none;
     color: white;
-    background: linear-gradient(45deg, #6c5ce7, #00cec9);
-    box-shadow: 0 0 10px rgba(0,255,255,0.7);
+
+    background: linear-gradient(45deg, #ff6ec7, #6c5ce7);
+
+    box-shadow:
+        0 0 10px #ff6ec7,
+        0 0 20px #6c5ce7;
+
     transition: 0.3s;
 }
 
+/* HOVER BOTON */
 .project a:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px #00ffff;
+    box-shadow:
+        0 0 20px #00ffff,
+        0 0 40px #a29bfe;
 }
