@@ -1,0 +1,95 @@
+/* Fondo general */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9ff3, #6c5ce7, #341f97);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* Contenedor general */
+.container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Tarjeta info */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 20px;
+}
+
+/* 🔥 CONTENEDOR DE PROYECTOS (ROSA + BORDE LED) */
+.projects-container {
+    position: relative;
+    background: #ff6ec7; /* ROSA PRINCIPAL */
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow: hidden;
+}
+
+/* LED SOLO EN EL BORDE */
+.projects-container::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 22px;
+    background: linear-gradient(
+        45deg,
+        #00ffff,
+        #5f27cd,
+        #ff00cc,
+        #00ffff
+    );
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(10px);
+    animation: rgbBorder 6s linear infinite;
+}
+
+/* Animación LED */
+@keyframes rgbBorder {
+    0% { background-position: 0% }
+    100% { background-position: 300% }
+}
+
+/* 🔹 CADA PROYECTO (contenido interno ordenado) */
+.project {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Nombre del proyecto */
+.project span {
+    font-weight: bold;
+}
+
+/* 🔘 Botón */
+.project a {
+    padding: 8px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(45deg, #6c5ce7, #00cec9);
+    box-shadow: 0 0 10px rgba(0,255,255,0.7);
+    transition: 0.3s;
+}
+
+/* Hover botón */
+.project a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00ffff;
+}
