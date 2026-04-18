@@ -1,7 +1,14 @@
-/* Fondo general */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ff9ff3, #6c5ce7, #341f97);
+    background: radial-gradient(circle, #ff9ff3, #5f27cd, #2e086d);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -9,40 +16,57 @@ body {
     color: white;
 }
 
-/* Contenedor general */
+
 .container {
     width: 90%;
     max-width: 600px;
     text-align: center;
 }
 
-/* Tarjeta info */
+
 .card {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255,255,255,0.15);
     padding: 15px;
     border-radius: 12px;
-    backdrop-filter: blur(10px);
     margin-bottom: 20px;
+    backdrop-filter: blur(10px);
 }
 
-/* 🔥 CONTENEDOR DE PROYECTOS (ROSA + BORDE LED) */
+
 .projects-container {
     position: relative;
-    background: #ff6ec7; /* ROSA PRINCIPAL */
+    background: rgba(255, 110, 199, 0.35); /* ROSA TRANSPARENTE */
     padding: 25px;
     border-radius: 20px;
+    backdrop-filter: blur(12px);
+}
+
+
+.projects-container h2 {
+    margin-bottom: 15px;
+}
+
+
+.project {
+    position: relative;
+    background: rgba(255, 110, 199, 0.25);
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 15px;
+
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+
     overflow: hidden;
 }
 
-/* LED SOLO EN EL BORDE */
-.projects-container::before {
+
+.project::before {
     content: "";
     position: absolute;
-    inset: -3px;
-    border-radius: 22px;
+    inset: -2px;
+    border-radius: 15px;
     background: linear-gradient(
         45deg,
         #00ffff,
@@ -52,32 +76,19 @@ body {
     );
     background-size: 400%;
     z-index: -1;
-    filter: blur(10px);
-    animation: rgbBorder 6s linear infinite;
+    filter: blur(8px);
+    animation: rgbMove 6s linear infinite;
 }
 
-/* Animación LED */
-@keyframes rgbBorder {
+@keyframes rgbMove {
     0% { background-position: 0% }
     100% { background-position: 300% }
 }
 
-/* 🔹 CADA PROYECTO (contenido interno ordenado) */
-.project {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 15px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Nombre del proyecto */
 .project span {
     font-weight: bold;
 }
 
-/* 🔘 Botón */
 .project a {
     padding: 8px 15px;
     border-radius: 10px;
@@ -88,7 +99,6 @@ body {
     transition: 0.3s;
 }
 
-/* Hover botón */
 .project a:hover {
     transform: scale(1.1);
     box-shadow: 0 0 20px #00ffff;
